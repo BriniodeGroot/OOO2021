@@ -7,6 +7,13 @@ public abstract class Product {
     private int id = -1;
     private boolean uigeleend = true;
 
+    public Product(String producttitle, String invuitgeleend ,int index) {
+        this.producttitle = producttitle;
+        this.setId(index);
+        if(invuitgeleend.equals("false")) this.uigeleend = false;
+
+    }
+
     public Product(String producttitle) {
         this.producttitle = producttitle;
     }
@@ -31,5 +38,13 @@ public abstract class Product {
 
     public boolean isUigeleend() { return uigeleend; }
 
-    public void setUigeleend(boolean uigeleend) { this.uigeleend = uigeleend; }
+    public void setUigeleend() {
+        if(!this.uigeleend) uigeleend = true;
+        uigeleend = false;
+    }
+    @Override
+    public String toString() {
+        return  "producttitle='" + producttitle +
+                ", id=" + id;
+    }
 }

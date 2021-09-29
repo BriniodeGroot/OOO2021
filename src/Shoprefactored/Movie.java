@@ -2,8 +2,10 @@ package Shoprefactored;
 
 public class Movie extends Product{
 
-    private final int factor = 2;
-
+    public Movie(String producttitle , String invuitgeleend , int index) {
+        super(producttitle , invuitgeleend , index);
+        this.setFactor(3);
+    }
     public Movie(String producttitle) {
         super(producttitle);
         this.setFactor(3);
@@ -17,6 +19,10 @@ public class Movie extends Product{
             price += (daysLeft * 2);
         };
         return price;
+    }
+    @Override
+    public String toString() {
+        return "Type: Movie, " + super.toString();
     }
 
 
