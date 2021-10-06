@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class Appekke {
 
-
+    String test = "";
     public static void main(String[] args) throws Exception {
         StringBuilder menu = new StringBuilder("Kies het algortime\n");
         Combobox box = new Combobox();
