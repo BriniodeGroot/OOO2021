@@ -1,39 +1,29 @@
 package Labo2.geheimschriften;
 
-import Labo2.Geheimschrift;
+import Labo2.Codingstate;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
-public class Caesarcijfer extends Geheimschrift {
+public class Caesarcijfer implements Codingstate {
 
-    private int jumps;
+    private final int jumps;
 
-    public Caesarcijfer() {this("" , 10);}
-
-    public Caesarcijfer(String text, int jumps) {
-        super(text);
+    public Caesarcijfer(int jumps) {
         this.jumps = jumps;
     }
 
-    public void setJumps(int jumps) {
-        this.jumps = jumps;
-    }
-
-
-    public String coderen() {
-        byte[] ascii = getText().toLowerCase(Locale.ROOT).getBytes(StandardCharsets.US_ASCII);
+    public String coderen(String text) {
+        byte[] ascii = text.toLowerCase(Locale.ROOT).getBytes(StandardCharsets.US_ASCII);
         for (int i = 0; i < ascii.length ; i++) {
             ascii[i] = (byte) (((ascii[i]-97 + jumps) % 26) + 97);
         }
-        System.out.println(StandardCharsets.US_ASCII.toString());
         return new String(ascii, StandardCharsets.US_ASCII);
     }
 
 
-    public String decoderen() {
-
-        byte[] ascii =  getText().toLowerCase(Locale.ROOT).getBytes(StandardCharsets.US_ASCII);
+    public String decoderen(String text) {
+        byte[] ascii =  text.toLowerCase(Locale.ROOT).getBytes(StandardCharsets.US_ASCII);
         for (int i = 0; i < ascii.length ; i++) {
             ascii[i] = (byte) (((ascii[i]-97 - (jumps % 26) + 97)));
         }

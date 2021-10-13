@@ -14,12 +14,18 @@ public class ShopApp {
             String choiceString = JOptionPane.showInputDialog(menu);
             choice = Integer.parseInt(choiceString);
             switch (choice) {
-                case 1 -> shop.addproduct();
-                case 2 -> shop.showproduct();
-                case 3 -> shop.showrentalproduct();
-                case 4 -> shop.setuitgeleend();
-                case 5 -> shop.wordtuitgeleend();
-                case 6 -> shop.geeflijstvanproducten();
+                case 1: shop.addproduct();
+                break;
+                case 2 : shop.showproduct();
+                break;
+                case 3 : shop.showrentalproduct();
+                break;
+                case 4 :shop.setuitgeleend();
+                break;
+                case 5 : shop.wordtuitgeleend();
+                break;
+                case 6 : shop.geeflijstvanproducten();
+                break;
             }
         }
         shop.schrijfbestanduit();

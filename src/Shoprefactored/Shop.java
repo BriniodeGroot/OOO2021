@@ -19,21 +19,25 @@ public class Shop {
         String title = JOptionPane.showInputDialog("Enter the title:");
         String type = JOptionPane.showInputDialog("Enter the type (M for movie/G for game/C for cd):");
         switch (type.toUpperCase(Locale.ROOT)) {
-            case "M" -> {
+
+            case "M":
                 Movie movie = new Movie(title);
                 movie.setId(index);
                 producten.add(movie);
-            }
-            case "G" -> {
+                break;
+
+            case "G":
                 Game game = new Game(title);
                 game.setId(index);
                 producten.add(game);
-            }
-            case "C" -> {
+                break;
+
+            case "C":
                 CD cd = new CD(title);
                 cd.setId(index);
                 producten.add(cd);
-            }
+                break;
+
         }
     }
     public void showproduct(){
@@ -80,9 +84,12 @@ public class Shop {
             String[] data = line.split(" ");
             if(data.length == 3){
                 switch (data[0]){
-                    case "Movie" -> this.producten.add(new Movie(data[1] , data[2] , index));
-                    case "Game" -> this.producten.add(new Game(data[1] , data[2] , index));
-                    case "CD" -> this.producten.add(new CD(data[1] , data[2] , index));
+                    case "Movie" :this.producten.add(new Movie(data[1] , data[2] , index));
+                    break;
+                    case "Game" : this.producten.add(new Game(data[1] , data[2] , index));
+                    break;
+                    case "CD" : this.producten.add(new CD(data[1] , data[2] , index));
+                    break;
                 }
             }
             index++;

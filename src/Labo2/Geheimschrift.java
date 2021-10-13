@@ -1,16 +1,20 @@
 package Labo2;
 
 public abstract class Geheimschrift {
-    String text;
 
-    public Geheimschrift(String text) {
-        this.text = text;
+    private Codingstate codingstate;
+
+    public Geheimschrift() {
     }
 
-    public String getText() { return text; }
+    public void setCodingstate(Codingstate codingstate) {
+        this.codingstate = codingstate;
+    }
 
-    public void setText(String text) { this.text = text; }
-
-    public abstract String coderen();
-    public abstract String decoderen();
+    public String coderen(String text){
+        return codingstate.coderen(text);
+    }
+    public String decoderen(String text){
+        return this.codingstate.decoderen(text);
+    }
 }
