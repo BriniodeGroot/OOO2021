@@ -12,7 +12,7 @@ public class WachtwoordApp {
         ArrayList<String> userNames = new ArrayList<>(Arrays.asList(userNames_a));
 
         //TO DO Maak een collectie om per user al zijn wachtwoorden bij te houden
-        Map<String , ArrayList<String>> wachtwoorden = new HashMap<>(Map.of());
+        Map<String , ArrayList<String>> wachtwoorden = new HashMap<>();
         for (String user: userNames_a) { wachtwoorden.put(user , new ArrayList<>()); }
 
 
