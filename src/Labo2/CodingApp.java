@@ -2,14 +2,17 @@ package Labo2;
 
 
 import javafx.application.Application;
-import javafx.scene.Group;
+import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-
-
 
 public class CodingApp extends Application {
 
@@ -19,20 +22,11 @@ public class CodingApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        FlowPane root = new FlowPane();
-        Scene mainScene = new Scene(root, 300, 250);
-
-        //labels
-
-        Label title = new Label("Greg");
-        System.out.println(title.getText());
-
-        //add
-
-        root.getChildren().add(title);
-
-        primaryStage.setTitle("Cijfer app");
-        primaryStage.setScene(mainScene);
-        primaryStage.show();
+        Codingui gui = new Codingui(primaryStage);
+    }
+    private Region lineBreak() {
+        return new Region() {{
+            setPrefSize(Double.MAX_VALUE, 0.0);
+        }};
     }
 }
