@@ -9,6 +9,10 @@ public class Caesarcijfer implements Codingstate {
 
     private final int jumps;
 
+    public Caesarcijfer() {
+        this(1);
+    }
+
     public Caesarcijfer(int jumps) {
         this.jumps = jumps;
     }
@@ -28,5 +32,9 @@ public class Caesarcijfer implements Codingstate {
             ascii[i] = (byte) (((ascii[i]-97 - (jumps % 26) + 97)));
         }
         return new String(ascii, StandardCharsets.UTF_8);
+    }
+    @Override
+    public String toString() {
+        return "Ceasarcijfer";
     }
 }
