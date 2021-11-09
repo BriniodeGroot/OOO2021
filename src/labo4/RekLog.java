@@ -5,4 +5,9 @@ public class RekLog implements Observer{
 
     public void update(){
     }
+
+    @Override
+    public void update(double saldo) {
+
+    }
 }

@@ -7,6 +7,9 @@ public abstract class Product {
     private int id = -1;
     private boolean uigeleend = true;
 
+    public Product(){
+        this.producttitle = "lol";
+    }
     public Product(String producttitle, String invuitgeleend ,int index) {
         this.producttitle = producttitle;
         this.setId(index);
