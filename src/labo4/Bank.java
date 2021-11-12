@@ -6,11 +6,11 @@ import java.util.HashMap;
 public class Bank implements Subject{
 
     private int index = 0;
-    HashMap<Integer , Rekening> rekeningen = new HashMap<Integer , Rekening>();
+    private HashMap<Integer , Rekening> rekeningen = new HashMap<Integer , Rekening>();
     private ArrayList<Observer> observers;
-    private Rekening rekening;
 
     public Bank(){
+
     }
 
     public void addrekening(int nummer, double saldo){
@@ -23,27 +23,22 @@ public class Bank implements Subject{
       if(rekeningen.containsKey(rekeningnummer)){
           return rekeningen.get(rekeningnummer);
       }
-        throw new IllegalArgumentException("Ongeldig rekeningnummer");
+      throw new IllegalArgumentException("Ongeldig rekeningnummer");
     }
 
     public void addobserver(Observer o){
-      observers.add(o);
+        observers.add(o);
     }
     public void removeobserver(Observer o){
-        int i = observers.indexOf(o);
-        if(i >= 0){
-            observers.remove(i);
-        }
+        observers.remove(o);
     }
-    public void notifyobservers(){
+    public void notifyobservers(int index){
         for(Observer observer: observers){
-            observer.update(rekening.getSaldo());
+            observer.update(rekeningen.get(index));
         }
     }
-
-    public int getSize()
-    {
-      return rekeningen.size();
+    public int getSize() {
+        return rekeningen.size();
     }
 
 }

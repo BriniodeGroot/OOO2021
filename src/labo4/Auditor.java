@@ -2,13 +2,8 @@ package labo4;
 
 public class Auditor implements Observer {
 
-    public void update(){
-
-    }
-
-
     @Override
-    public void update(double saldo) {
-
+    public void update(Rekening rekening) {
+        System.out.println("Nieuwe rekening geopend op datum " + rekening.getAanmaakdatum() + " met nummer " + rekening.getNummer()+ " en saldo " + rekening.getSaldo());
     }
 }

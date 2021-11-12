@@ -2,5 +2,5 @@ package labo4;
 
 public interface Observer {
 
-    void update(double saldo);
+    void update(Rekening rekening);
 }

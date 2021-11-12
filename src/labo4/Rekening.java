@@ -1,6 +1,7 @@
 package labo4;
 import java.time.LocalDate;
 public class Rekening extends Bank{
+
     private int nummer;
     private double saldo = 0;
     private LocalDate aanmaakdatum;
@@ -12,9 +13,8 @@ public class Rekening extends Bank{
     public int getNummer(){
         return nummer;
     }
-    public double getSaldo(){
-        return saldo;
-    }
+    public double getSaldo(){ return saldo; }
+    public LocalDate getAanmaakdatum() { return aanmaakdatum; }
     public void setSaldo(double saldo){
         this.saldo = saldo;
     }
