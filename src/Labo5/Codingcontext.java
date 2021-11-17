@@ -16,6 +16,7 @@ public class Codingcontext {
     }
 
     public void setCodingstate(Codingstate codingstate) {
+        System.out.println(codingstate + "is set");
         this.codingstate = codingstate;
     }
 
@@ -29,22 +30,16 @@ public class Codingcontext {
     }
 
     public Codingstate[] getlistofcodes() {
-        String path = System.getProperty("user.dir") + "/src/Labo5/geheimschriften";
-        File[] files = new File(path).listFiles();
-        assert files != null;
-        Codingstate[] geheimschriften = new Codingstate[files.length];
+        Codingstate[] geheimschriften = new Codingstate[GeheimschriftEnum.values().length];
+        GeheimschriftEnum[] enums  = GeheimschriftEnum.values();
         int i = 0;
-        for (File file : files) {
+        for (GeheimschriftEnum geheimschrift: enums) {
             try {
-                if (file.isFile()) {
-                    Class handlerClass = Class.forName("Labo5.geheimschriften." + file.getName().split("\\.")[0]);
-                    Object newgeheimschrift = handlerClass.getConstructor().newInstance();
-                    geheimschriften[i] = (Codingstate) newgeheimschrift;
-                    i++;
-                }
-            } catch (Exception ignored) {
-
-            }
+                Class handlerClass = Class.forName(geheimschrift.getKlasseNaam());
+                Object newgeheimschrift = handlerClass.getConstructor().newInstance();
+                geheimschriften[i] = (Codingstate) newgeheimschrift;
+                i++;
+            } catch (Exception ignored) { }
         }
         return geheimschriften;
     }
