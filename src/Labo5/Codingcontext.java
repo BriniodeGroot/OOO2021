@@ -1,4 +1,4 @@
-package Labo2;
+package Labo5;
 
 import java.io.File;
 
@@ -24,11 +24,12 @@ public class Codingcontext {
     }
 
     public String decoderen(String text){
+
         return this.codingstate.decoderen(text);
     }
 
     public Codingstate[] getlistofcodes() {
-        String path = System.getProperty("user.dir") + "/src/Labo2/geheimschriften";
+        String path = System.getProperty("user.dir") + "/src/Labo5/geheimschriften";
         File[] files = new File(path).listFiles();
         assert files != null;
         Codingstate[] geheimschriften = new Codingstate[files.length];
@@ -36,12 +37,13 @@ public class Codingcontext {
         for (File file : files) {
             try {
                 if (file.isFile()) {
-                    Class handlerClass = Class.forName("Labo2.geheimschriften." + file.getName().split("\\.")[0]);
+                    Class handlerClass = Class.forName("Labo5.geheimschriften." + file.getName().split("\\.")[0]);
                     Object newgeheimschrift = handlerClass.getConstructor().newInstance();
                     geheimschriften[i] = (Codingstate) newgeheimschrift;
                     i++;
                 }
             } catch (Exception ignored) {
+
             }
         }
         return geheimschriften;

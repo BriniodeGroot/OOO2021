@@ -1,4 +1,4 @@
-package labo4;
+package Labo4;
 import java.time.LocalDate;
 public class Rekening extends Bank{
 

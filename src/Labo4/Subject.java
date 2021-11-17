@@ -1,4 +1,4 @@
-package labo4;
+package Labo4;
 
 public interface Subject {
 

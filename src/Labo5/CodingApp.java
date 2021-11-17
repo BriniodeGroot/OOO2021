@@ -1,4 +1,4 @@
-package Labo2;
+package Labo5;
 
 
 import javafx.application.Application;
